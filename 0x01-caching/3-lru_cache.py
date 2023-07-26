@@ -4,7 +4,7 @@ from collections import OrderedDict
 from base_caching import BaseCaching
 
 
-class LIFOCache(BaseCaching):
+class LRUCache(BaseCaching):
     """last item to be inserted will be the first to be deleted
     """
     def ___init__(self):
