@@ -33,5 +33,5 @@ class LRUCache(BaseCaching):
         If key is None or if the key doesn’t exist in self.cache_data
         return None"""
         if key in self.cache_data:
-            self.cache_data.move_to_end(key)
+            self.cache_data.move_to_end(key,last=False)
         return self.cache_data.get(key, None)
