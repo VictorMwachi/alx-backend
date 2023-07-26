@@ -1,5 +1,6 @@
 #!/usr/bin/python3
 """0. Basic dictionary"""
+BasicCache = __import__('0-basic_cache').BasicCache
 
 
 class BasicCache(BaseCaching):
