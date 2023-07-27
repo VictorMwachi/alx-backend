@@ -10,7 +10,6 @@ class FIFOCache(BaseCaching):
     def ___init__(self):
         """initialize"""
         super().__init__()
-        self.cache_data = OrderedDict()
 
     def put(self, key, item):
         """assign to the dictionary self.cache_data the item value
@@ -19,7 +18,8 @@ class FIFOCache(BaseCaching):
         if key and item:
             self.cache_data[key] = item
         if len(self.cache_data) > BaseCaching.MAX_ITEMS:
-            first_key, _ = self.cache_data.popitem()
+            first_key = next(iter(self.cache_data))
+            self.cache_data.pop(first_key)
             print("DISCARD:", first_key)
 
     def get(self, key):
