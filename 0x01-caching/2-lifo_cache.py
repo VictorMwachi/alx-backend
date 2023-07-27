@@ -1,6 +1,5 @@
 #!/usr/bin/env python3
 """1. FIFO caching """
-from collections import OrderedDict
 from base_caching import BaseCaching
 
 
@@ -10,14 +9,14 @@ class LIFOCache(BaseCaching):
     def ___init__(self):
         """initialize"""
         super().__init__()
-        self.cache_data = OrderedDict()
+
 
     def put(self, key, item):
         """assign to the dictionary self.cache_data the item value
         for the key key.If key or item is None, this method should
         not do anything."""
         if key and item:
-            if len(self.cache_data) > BaseCaching.MAX_ITEMS:
+            if len(self.cache_data) + 1 > BaseCaching.MAX_ITEMS:
                 last_key, item = self.cache_data.popitem()
                 print("DISCARD:", last_key)
             self.cache_data[key] = item
