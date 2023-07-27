@@ -1,6 +1,5 @@
 #!/usr/bin/env python3
 """1. FIFO caching """
-from collections import OrderedDict
 from base_caching import BaseCaching
 
 
