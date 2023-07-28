@@ -29,7 +29,11 @@ class Server:
     def get_page(self, page: int = 1, page_size: int = 10) -> List[List]:
         assert type(page) == int and type(page_size) == int
         assert page > 0 and page_size > 0
-        return list(index_range(page,page_size))
+        start_index, end_index = index_range(page, page_size)
+        data = self.dataset()
+        if start_index > len(data):
+            return []
+        return data[start_index:end_index]
 
 
 def index_range(page: int, page_size: int) -> Tuple[int, int]:
