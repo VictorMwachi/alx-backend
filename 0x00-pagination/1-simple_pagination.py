@@ -7,6 +7,12 @@ import csv
 import math
 
 
+def index_range(page: int, page_size: int) -> Tuple[int, int]:
+    """return a tuple of size two containing a start index and an end index
+    corresponding to the range of indexes to return in a list for those
+    particular pagination parameters"""
+    return ((page - 1) * page_size, (page - 1) * page_size + page_size)
+
 class Server:
     """Server class to paginate a database of popular baby names.
     """
@@ -34,10 +40,3 @@ class Server:
         if start_index > len(data):
             return []
         return data[start_index:end_index]
-
-
-def index_range(page: int, page_size: int) -> Tuple[int, int]:
-    """return a tuple of size two containing a start index and an end index
-    corresponding to the range of indexes to return in a list for those
-    particular pagination parameters"""
-    return ((page - 1) * page_size, (page - 1) * page_size + page_size)
