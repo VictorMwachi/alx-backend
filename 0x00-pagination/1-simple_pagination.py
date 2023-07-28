@@ -27,7 +27,8 @@ class Server:
         return self.__dataset
 
     def get_page(self, page: int = 1, page_size: int = 10) -> List[List]:
-            return list(index_range(page,page_size))
+        assert page > 0 and page_size > 0
+        return list(index_range(page,page_size))
 
 
 def index_range(page: int, page_size: int) -> Tuple[int, int]:
