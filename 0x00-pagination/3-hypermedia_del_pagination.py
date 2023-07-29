@@ -45,4 +45,3 @@ class Server:
         assert index < 1000
         for idx in range(index, page_size):
             self.__indexed_dataset[index]
-        pass
